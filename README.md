@@ -67,52 +67,66 @@ cd Data-Engineering-Project
 
 ---
 
-## ⚙️ How to Run the Project
+## ▶️ How to Run the Project
 
 ### 1️⃣ Install Dependencies
-pip install pandas psycopg2  
+```bash
+pip install pandas psycopg2
+```
 
 ### 2️⃣ Setup PostgreSQL Database
 - Install PostgreSQL  
 - Create a database (e.g., `sales_db`)  
-- Run SQL script:
 
-psql -U username -d sales_db -f sql/create_tables.sql  
+Run SQL script:
+```bash
+psql -U username -d sales_db -f sql/create_tables.sql
+```
+
+---
 
 ### 3️⃣ Run ETL Pipeline
-
-python scripts/extract.py  
-python scripts/transform.py  
-python scripts/load.py  
+```bash
+python scripts/extract.py
+python scripts/transform.py
+python scripts/load.py
+```
 
 ---
 
 ## 🗄️ Example SQL Analysis
 
 ### 📌 Total Revenue
-SELECT SUM(revenue) FROM sales_data;  
+```sql
+SELECT SUM(revenue) FROM sales_data;
+```
 
 ### 📌 Average Order Value
-SELECT AVG(revenue) FROM sales_data;  
+```sql
+SELECT AVG(revenue) FROM sales_data;
+```
 
 ### 📌 Top 10 Orders
-SELECT * FROM sales_data ORDER BY revenue DESC LIMIT 10;  
+```sql
+SELECT * FROM sales_data ORDER BY revenue DESC LIMIT 10;
+```
 
 ---
 
 ## 💡 Example
 
-**Input (raw_sales.csv):**  
-Order_ID,Product,Quantity,Price  
-1,Shirt,2,500  
+**Input (raw_sales.csv):**
+```csv
+Order_ID,Product,Quantity,Price
+1,Shirt,2,500
+```
 
-**After Transform:**  
-Revenue = 2 × 500 = 1000  
+**After Transform:**
+```text
+Revenue = 2 × 500 = 1000
+```
 
-Stored in PostgreSQL → Ready for analysis  
-
----
-
+Stored in PostgreSQL → Ready for analysis
 ## 🧰 Common Issues
 
 | Problem | Reason | Fix |
